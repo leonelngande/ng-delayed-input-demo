@@ -10,7 +10,7 @@ export class DelayedInputDirective implements OnInit, OnDestroy {
     private userInput$ = new Subject<InputEvent>(); // 0️⃣
     private alive = true; // 1️⃣
 
-    @Input() dueTime = 500; // 2️⃣
+    @Input() delayTime = 500; // 2️⃣
     @Output() delayedInput = new EventEmitter<InputEvent>(); // 3️⃣
 
     constructor() { }
@@ -18,7 +18,7 @@ export class DelayedInputDirective implements OnInit, OnDestroy {
     ngOnInit() {
         this.userInput$ // 5️⃣
             .pipe(
-                debounce(() => timer(this.dueTime)), // 6️⃣
+                debounce(() => timer(this.delayTime)), // 6️⃣
                 distinctUntilChanged(), // 7️⃣
                 takeWhile(() => this.alive),
             )
@@ -27,9 +27,9 @@ export class DelayedInputDirective implements OnInit, OnDestroy {
 
     @HostListener('input', ['$event']) // 4️⃣
     inputEvent(event: InputEvent) {
-        event.preventDefault();
-        event.stopPropagation();
+
         this.userInput$.next(event);
+
     }
 
     ngOnDestroy() {

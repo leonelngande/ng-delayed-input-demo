@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  dueTime = 500;
+  delayTime = 500;
   searches: string[] = [];
 
   search($event: InputEvent) {

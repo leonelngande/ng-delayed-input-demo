@@ -12,7 +12,7 @@
         <div class="col-md-2 offset-md-5">
           <div class="form-group row">
             <label for="due-time" class="mb-0">Due time <code>(ms)</code></label>
-            <input type="number" placeholder="due time" [(ngModel)]="dueTime" class="form-control form-control-sm" id="due-time">
+            <input type="number" placeholder="due time" [(ngModel)]="delayTime" class="form-control form-control-sm" id="due-time">
           </div>
         </div>
       </div>
@@ -23,7 +23,7 @@
                placeholder="Search.."
                appDelayedInput
                (delayedInput)="search($event)"
-               [dueTime]="dueTime" class="form-control form-control-lg">
+               [delayTime]="delayTime" class="form-control form-control-lg">
       </div>
 
     </div>

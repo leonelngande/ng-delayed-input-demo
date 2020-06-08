@@ -10,7 +10,7 @@ export class AppComponent {
   delayTime = 500;
   searches: string[] = [];
 
-  search($event: InputEvent) {
+  search($event: Event) {
 
     this.searches.push(
       /**
